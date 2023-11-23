@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <p>Nothing to see here...</p>
+  <!-- Project -->
+  <script src="main.js"></script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"> <!-- Agregar Font Awesome -->
+  <title>Generador de Contraseñas</title>
+</head>
+<body class="bg-light">
+  <div class="container mt-5">
+    <div class="card p-4">
+      <h1 class="text-center mb-4">Generador de Contraseñas</h1>
+      <div class="form-group">
+        <input type="text" id="password" class="form-control mb-2" readonly>
+        <input type="text" id="binaryPassword" class="form-control mb-4" readonly>
+        <button onclick="generatePassword()" class="btn btn-primary btn-block mb-3">Generar Contraseña</button>
+        <a href="https://github.com/Netotv75" target="_blank" class="btn btn-dark btn-block"><i class="fab fa-github"></i> sigue a netotv en GitHub</a> <!-- Reemplaza "TU_USUARIO" con tu nombre de usuario de GitHub -->
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"></script> <!-- Agregar Font Awesome JS -->
+  <script>
+    function generatePassword() {
+      var length = 12; // longitud de la contraseña
+      var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-+="; // caracteres permitidos
+      var password = "";
+
+      for (var i = 0; i < length; i++) {
+        var randomIndex = Math.floor(Math.random() * charset.length);
+        password += charset[randomIndex];
+      }
+
+      document.getElementById("password").value = password;
+
+      // Código para mostrar la representación binaria
+      var binaryPassword = password.split('').map(function(char) {
+        return char.charCodeAt(0).toString(2).padStart(8, '0');
+      }).join(' ');
+
+      document.getElementById("binaryPassword").value = binaryPassword;
+    }
+  </script>
+</body>
+</html>
